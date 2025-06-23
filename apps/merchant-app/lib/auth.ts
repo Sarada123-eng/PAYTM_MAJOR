@@ -10,16 +10,11 @@ export const authOptions = {
     ],
     callbacks: {
       async signIn({ user, account }: {
-        user: {
-          email: string;
-          name: string
-        },
-        account: {
-          provider: "google" | "github"
-        }
+        user: { email?: string | null; name?: string | null };
+        account?: { provider?: string | null } | null;
       }) {
-        console.log("hi signin")
-        if (!user || !user.email) {
+        console.log("hi signin");
+        if (!user || !user.email || !user.name || !account || !account.provider) {
           return false;
         }
 
