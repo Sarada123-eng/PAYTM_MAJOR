@@ -2,7 +2,7 @@ import prisma from "@repo/db/client";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../../lib/auth";
 
-export async function getTransferTransactions() {
+async function getTransferTransactions() {
     const session = await getServerSession(authOptions);
     if (!session?.user?.id) return [];
     const txns = await prisma.p2PTransavtion.findMany({
