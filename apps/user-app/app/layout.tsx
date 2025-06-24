@@ -1,23 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import { Providers } from "../provider";
 import { AppbarClient } from "../components/AppbarClient";
-
-const inter = localFont({
-  src: [
-    {
-      path: "/fonts/Inter-Regular.woff2",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "/fonts/Inter-Bold.woff2",
-      weight: "700",
-      style: "normal",
-    },
-  ],
-});
 
 export const metadata: Metadata = {
   title: "Wallet",
@@ -32,7 +16,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <Providers>
-        <body className={inter.className}>
+        <body style={{ fontFamily: "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif" }}>
           <div className="min-w-screen min-h-screen bg-[#ebe6e6]">
             <AppbarClient />
             {children}
